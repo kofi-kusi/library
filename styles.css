@@ -1,0 +1,16 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 80%;
+    width: 80%;
+}
+
+header {
+    align-content: center;
+}
