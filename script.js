@@ -11,8 +11,7 @@ function Book(title, author, pages, is_read) {
     }
 }
 
-function addBookToLibrary(title, author, pages, is_read) {
-    const book = new Book(title, author, pages, is_read);
+function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
@@ -41,10 +40,42 @@ function displayLibrary(){
     });
 }
 
-const newBookButton = document.querySelector("#newBookButton");
-const formContainer = document.querySelector("#formContainer");
+const newBookButton = document.getElementById("newBookButton");
+const formContainer = document.getElementById("formContainer");
 const closeBtn = document.querySelector(".close");
 
-addBookToLibrary("rod", "kusi", 13);
-addBookToLibrary("rfd", "kui", 18, "Yes");
-collection(myLibrary);
+newBookButton.addEventListener("click", () => {
+    closeBtn.addEventListener("click", () => {
+        formContainer.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === formContainer){
+            formContainer.style.display = "none";
+        } 
+    });
+
+    if(formContainer.style.display = "none"){
+        formContainer.style.display = "flex";
+    }else{
+        formContainer.style.display = "none";
+    }
+});
+
+document.querySelector("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.querySelector("#pages").value;
+    const status = document.querySelector(`input[name="is-read"]:checked`);
+    const is_read = status ? status.id === "Yes" : false;
+
+    const book = new Book(title, author, pages, is_read);
+    addBookToLibrary(book);
+
+    displayLibrary();
+
+    formContainer.style.display = "none";
+    document.querySelector("form").reset();
+})
