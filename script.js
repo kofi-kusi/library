@@ -7,7 +7,7 @@ function Book(title, author, pages, is_read) {
     this.pages = pages;
     this.is_read = is_read;
     this.info = function () {
-        return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.is_read}`
+        return `The ${this.title} by ${this.author}, ${this.pages} pages.`
     }
 }
 
@@ -23,6 +23,10 @@ function displayLibrary(){
         const bookCard = document.createElement("div");
         bookCard.classList.add("card");
 
+        const description = document.createElement("p");
+        description.textContent = book.info();
+        description.style.background = 'gray';
+
         const title = document.createElement("h3");
         title.textContent = book.title;
 
@@ -32,6 +36,7 @@ function displayLibrary(){
         const readStatus = document.createElement("p");
         readStatus.textContent = `Read: ${book.is_read ? "Yes" : "No"}`;
 
+        bookCard.appendChild(description);
         bookCard.appendChild(title);
         bookCard.appendChild(author);
         bookCard.appendChild(readStatus);
@@ -62,12 +67,14 @@ newBookButton.addEventListener("click", () => {
     }
 });
 
+document.querySelector("form").classList.add("open-sans-font");
+
 document.querySelector("form").addEventListener("submit", (e) => {
     e.preventDefault();
 
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
-    const pages = document.querySelector("#pages").value;
+    const pages = document.getElementById("pages").value;
     const status = document.querySelector(`input[name="is-read"]:checked`);
     const is_read = status ? status.id === "Yes" : false;
 
