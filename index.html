@@ -11,8 +11,8 @@
     <header>
         <h1>My Library</h1>
         <button id="newBookButton">New Book</button>
-        <div id="formContainer">
-            <span class="close">x</span>
+        <div id="formContainer" style="display: none;">
+            <button><span class="close">x</span></button>
             <form action="">
                 <legend>Add New Book</legend>
                 <label for="title">Book Title: </label>
@@ -22,9 +22,9 @@
                 <label for="pages">Number of pages: </label>
                 <input type="number" name="pages" id="pages">
                 <label for="is-read">Have you read this book:</label>
-                <label for="yes">Yes: <input type="radio" name="is-read" id="yes"></label>
-                <label for="no">No: <input type="radio" name="is-read" id="no"></label>
-
+                <label for="yes">Yes: <input type="radio" name="is-read" id="Yes"></label>
+                <label for="no">No: <input type="radio" name="is-read" id="No"></label>
+                <button type="submit" name="add">Add Book</button>
             </form>
         </div>
     </header>
