@@ -14,6 +14,10 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+function changeReadStatus(index){
+    myLibrary[index].is_read = !myLibrary[index].is_read;
+}
+
 function removeFromLibrary(index){
     myLibrary.splice(index, 1);
 }
@@ -28,7 +32,7 @@ function displayLibrary(){
 
         const description = document.createElement("p");
         description.textContent = book.info();
-        description.classList.add("card-header");
+        description.classList.add("card-header", "petit-formal-script-regular");
         description.style.background = 'gray';
 
         const title = document.createElement("h3");
@@ -39,6 +43,20 @@ function displayLibrary(){
 
         const readStatus = document.createElement("p");
         readStatus.textContent = `Read: ${book.is_read ? "Yes" : "No"}`;
+        readStatus.style.marginBottom = "10px";
+
+        // change read status
+        const changeStatusButton = document.createElement("button");
+        changeStatusButton.textContent = "change read status";
+        changeStatusButton.setAttribute("data-index", index);
+        changeStatusButton.style.cssText = "padding: 10px; display: block; border: none; border-radius: 5px; margin-bottom: 5px";
+
+        changeStatusButton.addEventListener("click", (e) => {
+            const index = e.target.getAttribute("data-index");
+            changeReadStatus(index);
+
+            displayLibrary();
+        })
 
         const removeBook = document.createElement("button");
         removeBook.textContent = "delete";
@@ -56,6 +74,7 @@ function displayLibrary(){
         bookCard.appendChild(title);
         bookCard.appendChild(author);
         bookCard.appendChild(readStatus);
+        bookCard.appendChild(changeStatusButton);
         bookCard.appendChild(removeBook);
 
         books.appendChild(bookCard);
