@@ -14,6 +14,10 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+function removeFromLibrary(index){
+    myLibrary.splice(index, 1);
+}
+
 function displayLibrary(){
     const books = document.querySelector(".container");   
     books.innerHTML = "";
@@ -38,10 +42,14 @@ function displayLibrary(){
 
         const removeBook = document.createElement("button");
         removeBook.textContent = "delete";
+        removeBook.setAttribute("data-index", index);
         removeBook.style.cssText = "background-color: red; color: white; border: none; padding: 20px, width: 100%"
 
-        removeBook.addEventListener("click", () => {
-            bookCard.style.display = "none";
+        removeBook.addEventListener("click", (e) => {
+            const index = e.target.getAttribute("data-index");
+            removeFromLibrary(index);
+
+            displayLibrary();
         })
 
         bookCard.appendChild(description);
