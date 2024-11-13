@@ -1,16 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Petit+Formal+Script&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    font-family: "Open Sans", sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    /* --button-background: #000000;
+    --button-font-size: 20px; */
+}
+
+body {
+    background-color: #000000;
+    width: 100vw;
+}
+
+.petit-formal-script-regular {
+    font-family: "Petit Formal Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+}
+
+.open-sans-font {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+  
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 20px 30px;
+    margin: 0;
 }
 
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    width: inherit;
+    margin-top: 20px;
+    gap: 10px;
+    margin: 10px 10px;
 }
 
 header {
     align-content: center;
+    background-color: #000000;
+    padding: 0 30px;
+}
+
+.btn {
+    border-radius: 10px;
+    background-color: peachpuff;
+    padding: 15px 15px;
+    border: none;
+}
+
+#formContainer {
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    height: 100%;
+    width: 80%;
+}
+
+form {
+    background-color: gray;
+    border-radius: 5px;
+    color: #FFFFFF;
+    width: 60%;
+    height: fit-content;
+    padding: 20px;
+}
+
+form input {
+    width: 100%;
+}
+
+.card {
+    background-color: #c2b299;
+    width: max(160px, 60%);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.card-header {
+    padding: 10px;
 }
