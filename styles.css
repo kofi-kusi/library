@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-:root {
-    /* --button-background: #000000;
-    --button-font-size: 20px; */
-}
 
 body {
     background-color: #000000;
@@ -62,6 +58,7 @@ header {
 }
 
 #formContainer {
+    display: none;
     position: fixed;
     flex-direction: column;
     justify-content: center;
